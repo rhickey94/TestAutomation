@@ -2,7 +2,7 @@ using TestFramework.Driver;
 
 namespace Tests;
 
-[Parallelizable]
+[Parallelizable(ParallelScope.All)]
 public class Tests : TestBase
 {
     [SetUp]
@@ -13,12 +13,13 @@ public class Tests : TestBase
     [Test]
     public void Test1()
     {
-        driver?.Driver.Navigate().GoToUrl("https://www.twitch.tv");
+        Driver.Driver.Navigate().GoToUrl("https://www.twitch.tv");
     }
     
     [Test]
     public void Test2()
     {
-        driver?.Driver.Navigate().GoToUrl("https://www.twitch.tv");
+        Driver.Driver.Navigate().GoToUrl("https://www.twitch.tv");
+        Assert.Fail();
     }
 }
